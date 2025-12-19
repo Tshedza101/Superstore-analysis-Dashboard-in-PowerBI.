@@ -1,0 +1,43 @@
+#**Key Meaasures**
+
+The following measures were created a grouped into three categories 1.Metrics, 2. Previous year measures and 3. VS previous year measures.
+1. Metrics :
+  - Sales = SUM(Orders[Sales])
+  - Profit = SUM(Orders[Profit] )
+  - % returned Orders = 
+VAR _total_orders = DISTINCTCOUNT(Orders[Order ID])
+VAR _returned_orders = DISTINCTCOUNT(Returns[Order ID])
+VAR _percentage = 
+DIVIDE(
+    _returned_orders,
+    _total_orders
+)
+RETURN _percentage
+  
+2. Previous Year Measures(Prev_year_measures)
+- Sales PY = 
+CALCULATE(
+    [Sales], SAMEPERIODLASTYEAR('Date Table'[Date]))
+
+- Profit PY = 
+CALCULATE(
+    [Profit], SAMEPERIODLASTYEAR('Date Table'[Date]))
+- % returned orders PY = 
+CALCULATE(
+    [% returned orders], SAMEPERIODLASTYEAR('Date Table'[Date]))
+
+3. VS Previous Year(VS PY)
+- vs PY - Sales = 
+DIVIDE(
+    [Sales] - [Sales PY],
+    [Sales PY]
+  )
+  
+- vs PY - Profit = 
+DIVIDE(
+    [Profit] - [Profit PY],
+    [Profit PY]
+)
+
+- vs PY - % returned Orders = 
+ [% returned Orders] - [% returned orders PY]
