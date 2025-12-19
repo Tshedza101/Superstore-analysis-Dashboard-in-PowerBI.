@@ -5,14 +5,14 @@ The following measures were created a grouped into three categories 1.Metrics, 2
   - Sales = SUM(Orders[Sales])
   - Profit = SUM(Orders[Profit] )
   - % returned Orders = 
-VAR _total_orders = DISTINCTCOUNT(Orders[Order ID])
-VAR _returned_orders = DISTINCTCOUNT(Returns[Order ID])
-VAR _percentage = 
-DIVIDE(
+  VAR _total_orders = DISTINCTCOUNT(Orders[Order ID])
+  VAR _returned_orders = DISTINCTCOUNT(Returns[Order ID])
+  VAR _percentage = 
+  DIVIDE(
     _returned_orders,
     _total_orders
-)
-RETURN _percentage
+  )
+  RETURN _percentage
   
 2. Previous Year Measures(Prev_year_measures)
 - Sales PY = 
